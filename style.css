@@ -1,0 +1,571 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b1120;
+    color: white;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.topbar {
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 28px;
+
+    background: #111827;
+
+    border-bottom: 1px solid #263247;
+}
+
+
+.brand-title {
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.brand-subtitle {
+    margin-top: 5px;
+
+    font-size: 13px;
+
+    color: #94a3b8;
+}
+
+
+.top-actions {
+    display: flex;
+    gap: 10px;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.btn {
+    border: none;
+
+    padding: 13px 18px;
+
+    border-radius: 8px;
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.location-btn {
+    background: #2563eb;
+}
+
+.add-btn {
+    background: #16a34a;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.main-container {
+    height: calc(100vh - 82px);
+
+    display: grid;
+
+    grid-template-columns: 1fr 380px;
+}
+
+
+/* =========================================
+   MAP
+========================================= */
+
+.map-section {
+    position: relative;
+
+    min-width: 0;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =========================================
+   MAP MESSAGE
+========================================= */
+
+.map-message {
+    position: absolute;
+
+    left: 20px;
+    bottom: 20px;
+
+    z-index: 1000;
+
+    background: rgba(15, 23, 42, 0.94);
+
+    padding: 11px 15px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    color: #e2e8f0;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+
+/* =========================================
+   SIDE PANEL
+========================================= */
+
+.side-panel {
+    background: #0f172a;
+
+    border-left: 1px solid #263247;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================
+   TABS
+========================================= */
+
+.panel-tabs {
+    display: flex;
+
+    border-bottom: 1px solid #263247;
+}
+
+.tab {
+    flex: 1;
+
+    padding: 16px;
+
+    background: transparent;
+
+    border: none;
+
+    color: #94a3b8;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.tab.active {
+    color: white;
+
+    border-bottom: 2px solid #3b82f6;
+}
+
+
+/* =========================================
+   PANEL CONTENT
+========================================= */
+
+.panel-content {
+    padding: 18px;
+
+    overflow-y: auto;
+}
+
+.panel-title {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.count {
+    min-width: 28px;
+
+    padding: 5px 9px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background: #2563eb;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   SHOP CARD
+========================================= */
+
+.shop-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.shop-card {
+    padding: 15px;
+
+    background: #1e293b;
+
+    border: 1px solid #334155;
+
+    border-radius: 10px;
+}
+
+.shop-name {
+    font-size: 17px;
+
+    font-weight: 700;
+
+    margin-bottom: 9px;
+}
+
+.shop-info {
+    color: #cbd5e1;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.shop-actions {
+    display: flex;
+
+    gap: 7px;
+
+    margin-top: 12px;
+}
+
+.shop-actions button {
+    flex: 1;
+
+    padding: 8px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.view-btn {
+    background: #2563eb;
+}
+
+.route-btn {
+    background: #7c3aed;
+}
+
+.delete-btn {
+    background: #dc2626;
+}
+
+
+/* =========================================
+   EMPTY
+========================================= */
+
+.empty {
+    padding: 40px 10px;
+
+    text-align: center;
+
+    color: #64748b;
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0,0,0,0.72);
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-box {
+    width: min(500px, 92vw);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #111827;
+
+    border: 1px solid #334155;
+
+    border-radius: 12px;
+
+    padding: 22px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+
+/* =========================================
+   MODAL HEADER
+========================================= */
+
+.modal-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    font-size: 21px;
+}
+
+.close-btn {
+    border: none;
+
+    background: transparent;
+
+    color: #94a3b8;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+form label {
+    display: block;
+
+    margin: 13px 0 6px;
+
+    color: #cbd5e1;
+
+    font-size: 13px;
+}
+
+form input,
+form textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #334155;
+
+    border-radius: 7px;
+
+    outline: none;
+
+    background: #0f172a;
+
+    color: white;
+
+    font-size: 14px;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #3b82f6;
+}
+
+textarea {
+    min-height: 80px;
+
+    resize: vertical;
+}
+
+
+/* =========================================
+   LOCATION INFO
+========================================= */
+
+.location-info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 16px;
+}
+
+.location-info div {
+    padding: 11px;
+
+    background: #0f172a;
+
+    border: 1px solid #334155;
+
+    border-radius: 7px;
+}
+
+.location-info span {
+    display: block;
+
+    color: #64748b;
+
+    font-size: 11px;
+
+    margin-bottom: 4px;
+}
+
+.location-info strong {
+    font-size: 13px;
+
+    color: #60a5fa;
+
+    word-break: break-all;
+}
+
+.accuracy {
+    margin-top: 10px;
+
+    padding: 10px;
+
+    border-radius: 7px;
+
+    background: #172033;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   SAVE
+========================================= */
+
+.save-btn {
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #16a34a;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.save-btn:disabled {
+    background: #475569;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .topbar {
+        height: auto;
+
+        padding: 14px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 12px;
+    }
+
+    .top-actions {
+        width: 100%;
+    }
+
+    .btn {
+        flex: 1;
+    }
+
+    .main-container {
+        height: auto;
+
+        display: flex;
+
+        flex-direction: column;
+    }
+
+    .map-section {
+        height: 55vh;
+    }
+
+    .side-panel {
+        min-height: 45vh;
+
+        border-left: none;
+
+        border-top: 1px solid #263247;
+    }
+}

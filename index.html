@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Collection Route Manager</title>
+
+    <!-- Leaflet CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <!-- Our CSS -->
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+        <div class="brand-title">
+            📍  Route Manager
+        </div>
+
+        <div class="brand-subtitle">
+            Daily Shop Collection
+        </div>
+    </div>
+
+    <div class="top-actions">
+
+        <button
+            id="selectLocationBtn"
+            class="btn location-btn"
+        >
+            📍 Select Location
+        </button>
+
+        <button
+            id="addShopBtn"
+            class="btn add-btn"
+        >
+            ➕ Add Shop
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="main-container">
+
+    <!-- MAP -->
+    <section class="map-section">
+
+        <div
+            id="map"
+            class="map"
+        ></div>
+
+        <div
+            id="mapMessage"
+            class="map-message"
+        >
+            📍 Click "Select Location" to manually select a shop location
+        </div>
+
+    </section>
+
+
+    <!-- RIGHT PANEL -->
+    <aside class="side-panel">
+
+        <div class="panel-tabs">
+
+            <button
+                id="shopTab"
+                class="tab active"
+            >
+                🏪 Shops
+            </button>
+
+            <button
+                id="routeTab"
+                class="tab"
+            >
+                🛣️ Route
+            </button>
+
+        </div>
+
+
+        <div class="panel-content">
+
+            <div class="panel-title">
+                <span>Shops</span>
+
+                <span
+                    id="shopCount"
+                    class="count"
+                >
+                    0
+                </span>
+            </div>
+
+
+            <div
+                id="shopList"
+                class="shop-list"
+            >
+
+                <div class="empty">
+                    No shops saved yet.
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+</main>
+
+
+<!-- =========================================
+     SHOP MODAL
+========================================= -->
+
+<div
+    id="shopModal"
+    class="modal hidden"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2 id="modalTitle">
+                🏪 Add Shop
+            </h2>
+
+            <button
+                id="closeModal"
+                class="close-btn"
+            >
+                ✕
+            </button>
+
+        </div>
+
+
+        <form id="shopForm">
+
+            <label>
+                Shop Name *
+            </label>
+
+            <input
+                id="shopName"
+                type="text"
+                placeholder="Enter shop name"
+                required
+            >
+
+
+            <label>
+                Owner Name
+            </label>
+
+            <input
+                id="ownerName"
+                type="text"
+                placeholder="Enter owner name"
+            >
+
+
+            <label>
+                Phone Number
+            </label>
+
+            <input
+                id="phone"
+                type="tel"
+                placeholder="Enter phone number"
+            >
+
+
+            <label>
+                Notes
+            </label>
+
+            <textarea
+                id="notes"
+                placeholder="Shop notes..."
+            ></textarea>
+
+
+            <div class="location-info">
+
+                <div>
+                    <span>Latitude</span>
+
+                    <strong id="latitude">
+                        -
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Longitude</span>
+
+                    <strong id="longitude">
+                        -
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div
+                id="accuracyBox"
+                class="accuracy"
+            >
+                📡 Location: Waiting...
+            </div>
+
+
+            <button
+                type="submit"
+                id="saveShopBtn"
+                class="save-btn"
+            >
+                💾 Save Shop
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- Leaflet JS -->
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+<!-- Our JS -->
+<script src="app.js"></script>
+
+</body>
+</html>
